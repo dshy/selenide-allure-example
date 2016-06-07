@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" class="demo "><head>
+  <meta charset="utf-8" />
+  <title>Login -  Bank Saint-Petersburg</title>
+  <meta content="BSPB internet-bank for private customers" name="description" />
+  <meta content="banking,online banking,finance services,cards,accounts,statement" name="keywords" />
+  <meta content="11126-BSPB_STABLE" name="build" />
+  <meta content="fa842ae" name="revision" />
+  
+  <link href="/public/images/favicon.png" type="image/png" rel="shortcut icon" />  <meta content="telephone=no" name="format-detection" />
+
+      <link media="screen" href="/public/stylesheets/lib.less.css?fa842ae" type="text/css" rel="stylesheet" />  <link media="screen" href="/public/stylesheets/main.less.css?fa842ae" type="text/css" rel="stylesheet" />  <link charset="utf-8" media="print" href="/public/stylesheets/print.css" type="text/css" rel="stylesheet" />
+  
+  
+  <script async="" src="https://www.google-analytics.com/analytics.js"></script><script src="/public/javascripts/base.js?fa842ae"></script>  <!--[if lte IE 8]>
+    <script type="text/javascript" language="javascript"  src="/public/javascripts/excanvas.min.js"></script>
+    <script type="text/javascript" language="javascript"  src="/public/javascripts/html5-shiv.min.js"></script>
+    <script type="text/javascript" language="javascript"  src="/public/javascripts/es5-shim.min.js"></script>
+  <![endif]-->
+  <!--[if lte IE 9]>
+    <script type="text/javascript" language="javascript"  src="/public/javascripts/jquery.placeholder.min.js"></script>
+    <script>
+      $(function(){
+        $('body').addClass('lteIe9');
+      });
+    </script>
+  <![endif]-->
+
+        <script src="/public/javascripts/session.js?4d881ef57c59266ef41d26a90d2f5344dd5bb919" type="text/javascript"></script>
+  
+  </head>
+
+<body class="logged-in demo">
+
+  <div class="loader-animation-container hidden">
+    <div id="loader-box">
+      <div><img class="animation-image" src="/public/images/loader-animation.gif" /></div>
+      <div>Please wait,<br />your request is being processed</div>
+      <div class="progress hidden">
+        <div class="bar"></div>
+      </div>
+    </div>
+  </div>
+
+<script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-31858768-3', 'auto');
+    ga('set', 'userId', 'demo');    ga('send', 'pageview');
+    </script>
+
+
+
+
+<div id="outer-wrapper">
+  <div id="inner-wrapper">
+
+    <div id="header">
+      <div class="content clearfix">
+        <a href="/welcome" id="logo">
+  <img alt="Bank Saint-Petersburg" src="/public/images/logo-bspb.png" />
+</a>
+<div class="environment print-hidden">
+        Internet-bank
+  </div>
+                          <div id="controls">
+              <div class="user-info" id="user">
+              <a href="/settings" id="user-avatar">
+        <img src="/public/images/avatars/1.png" title="Avatar" />
+      </a>
+    
+    <span class="name-holder multiple-representees has-loyalty-program">
+      
+              <div class="print-hidden" id="representee-name">
+                    Ольга Королёва
+        </div>
+      
+      <div class="print-only" id="representee-name">
+        Ольга Королёва
+      </div>
+
+        <script>
+    $(function() {
+      $('select[name="representee-list"]').change(function() {
+        location = '/application/selectrepresentee?index=' + $('#representee-list option:selected').val();
+      });
+              $('.bootstrap-select-searchbox').hide();
+      
+      $('#representee-list button').attr('title', "Choose the customer to represent (private or business)");
+    });
+  </script>
+
+  <div id="representee-list">
+    
+<select class="span4 selectpicker hidden representee-name representee-private" size="1" name="representee-list" style="display: none;">
+                  <option selected="selected" class="representee representee-private" value="0">Ольга Королёва</option>
+              <option class="representee representee-corporate" value="1">ОАО "Коудборн"</option>
+              <option class="representee representee-corporate" value="2">ИП "Морозов Павел Изяславович"</option>
+              </select><div class="btn-group bootstrap-select span4 hidden representee-name representee-private"><button data-toggle="dropdown" class="btn dropdown-toggle selectpicker btn-default" type="button" title="Choose the customer to represent (private or business)"><span class="filter-option pull-left">Ольга Королёва</span> <span class="caret"></span></button><div class="dropdown-menu open"><div class="bootstrap-select-searchbox" style="display: none;"><input type="text" class="input-block-level form-control" /></div><ul role="menu" class="dropdown-menu inner selectpicker"><li rel="0" class="selected"><a style="" class="representee representee-private" tabindex="0"><span class="text">Ольга Королёва</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="1"><a style="" class="representee representee-corporate" tabindex="0"><span class="text">ОАО "Коудборн"</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="2"><a style="" class="representee representee-corporate" tabindex="0"><span class="text">ИП "Морозов Павел Изяславович"</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li></ul></div></div>
+
+  </div>
+
+              <div id="bonus-points">
+          <a href="/loyaltyprogram">500.87 Yarko bonus points</a>
+        </div>
+          </span>
+
+    <span class="clearfix" id="preference-controls">
+                  <span title="BankMessages" class="btn-toolbar" id="messages-count">5</span>      <img onclick="document.location = '/messages'" alt="Messages" title="Messages" class="btn-toolbar" src="/public/images/detection-image.gif" id="messages-button" />
+        <img onclick="document.location='/offers'" alt="Personal offers" title="Personal offers" class="btn-toolbar" src="/public/images/detection-image.gif" id="offers-button" />      <img onclick="showAjaxDialog('/application/contacts')" alt="Contact bank" title="Contact bank" class="btn-toolbar" src="/public/images/detection-image.gif" id="contact-button" />
+      <img onclick="document.location = '/settings'" alt="Settings" title="Settings" class="btn-toolbar" src="/public/images/detection-image.gif" id="settings-button" />
+    </span>
+
+    
+    <img onclick="document.location = '/logout'" alt="Logout" title="Logout" class="btn-toolbar" src="/public/images/detection-image.gif" id="logout-button" />
+  </div>
+  <script type="text/javascript">
+  var timeoutWatcher = new (function() {
+    var self = this;
+    var sessionExpiration = 1500000;
+    var timeoutLabels = [];  timeoutLabels[0] = 'Your session will expire in about one minute'; timeoutLabels[1] = 'Your session will expire in about one minute'; timeoutLabels[2] = 'Your session will expire in about 2 minutes'; timeoutLabels[3] = 'Your session will expire in about 3 minutes'; timeoutLabels[4] = 'Your session will expire in about 4 minutes'; timeoutLabels[5] = 'Your session will expire in about 5 minutes';    var timeoutWatcherInterval = 60000;
+    var timeoutWatcherTime = sessionExpiration - 5 * timeoutWatcherInterval;
+    var timeout, interval;
+
+    self.continueSession = function() {
+      $.get('/security/continuesession');
+      $('#timeout-warning').modal('hide');
+      resetTimeout();
+    };
+    
+    self.testActivate = function(updateInterval) {
+      if (updateInterval) timeoutWatcherInterval = updateInterval;
+      setupTimeoutWatcher();
+    };
+    
+    function resetTimeout() {
+      clearInterval(interval);
+      clearTimeout(timeout);
+      timeout = setTimeout(setupTimeoutWatcher, timeoutWatcherTime);
+    }
+
+    function setupTimeoutWatcher() {
+      var counter = Math.round((sessionExpiration - timeoutWatcherTime) / 60000);
+      $('.modal:visible').modal('hide');
+      $('#timeout-warning .modal-header h3').text(timeoutLabels[counter]);
+      $('#timeout-warning').modal({show: true});
+
+      interval = setInterval(function() {
+        $('#timeout-warning .modal-header h3').text(timeoutLabels[--counter]);
+        if (counter &lt;= 0) {
+          clearInterval(interval);
+          location.href = '/logout';
+        }
+      }, timeoutWatcherInterval);
+    }
+
+    self.init = function() {
+      $(document).ajaxSuccess(resetTimeout);
+      resetTimeout();
+    }
+  })();
+  
+  $(function() {
+    timeoutWatcher.init();
+  });
+</script>
+
+<div tabindex="-1" class="modal hide" id="timeout-warning">
+  <div class="modal-header">
+    <button data-dismiss="modal" class="close" type="button">×</button>
+    <h3> </h3>
+  </div>
+  <div class="modal-body">
+    <p>Would you like to continue using the internet bank or logout?</p>
+  </div>
+  <div class="modal-footer">
+    <a href="/logout" class="btn">Logout</a>
+    <button onclick="timeoutWatcher.continueSession()" class="btn btn-primary">Continue</button>
+  </div>
+</div>
+          </div>
+                      </div>
+    </div>
+
+    <div class="section-security action-security-fakelogin branch-" id="body">
+      <div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      
+<ul class="navigation-menu nav">
+          <li class="section-bank " id="overview">
+                    <a href="/bank/overview" id="bank-overview">Overview</a>
+                </li>
+          <li class="section-accounts dropdown " id="accounts">
+              <a href="/accounts" class="dropdown-toggle" id="bank-accounts">Accounts</a>
+        
+<ul class="navigation-menu dropdown-menu">
+          <li class="section-bank " id="statement">
+                    <a href="/statement" id="bank-statement">Statement</a>
+                </li>
+          <li class="section-accounts " id="accountIndex">
+                    <a href="/accounts" id="accounts-index">Current accounts</a>
+                </li>
+  </ul>
+                      </li>
+          <li class="section-payments dropdown " id="payments">
+              <a href="/payments/form" class="dropdown-toggle" id="payments">Payments</a>
+        
+<ul class="navigation-menu dropdown-menu">
+          <li class="section-payments " id="payment">
+                    <a href="/payments/form" id="payments-form">Payment</a>
+                </li>
+          <li class="section-vendorpayments " id="service">
+                    <a href="/vendors" id="vendorpayments-index">Service payments</a>
+                </li>
+          <li class="section-recurrentpayments " id="recurrent">
+                    <a href="/recurrentpayments" id="recurrentpayments-index">Recurrent payments</a>
+                </li>
+          <li class="section-payments " id="paymentsHistory">
+                    <a href="/payments/history" id="payments-history">History</a>
+                </li>
+  </ul>
+                      </li>
+          <li class="section-cards " id="cards">
+                    <a href="/cards" id="cards-index">Cards</a>
+                </li>
+          <li class="section-deposits " id="deposits">
+                    <a href="/deposits" id="deposits-index">Deposits</a>
+                </li>
+          <li class="section-loans " id="loans">
+                    <a href="/loans" id="loans-index">Loans</a>
+                </li>
+          <li class="section-currency dropdown " id="currency">
+              <a href="/currency/rates" class="dropdown-toggle" id="currency">Currency</a>
+        
+<ul class="navigation-menu dropdown-menu">
+          <li class="section-currency " id="currencyRates">
+                    <a href="/currency/rates" id="currency-rates">Rates</a>
+                </li>
+          <li class="section-currency " id="currencyExchange">
+                    <a href="/currency/exchange" id="currency-exchange">Exchange</a>
+                </li>
+  </ul>
+                      </li>
+          <li class="section-insurance " id="insurance">
+                    <a href="/insurance" id="insurance-index">Insurance</a>
+                </li>
+  </ul>
+      <ul class="navigation-menu nav faq help-menu">
+        <li>
+          <a title="Frequently Asked Questions" href="/faq" id="faq-link" class="secondary-link ">?</a>
+        </li>
+      </ul>
+      <ul style="display: none;" class="navigation-menu nav faq welcome-tour-menu">
+        <li class="dropdown">
+          <a href="#" id="faq-link" data-toggle="dropdown" class="dropdown-toggle secondary-link">?</a>
+          <ul class="navigation-menu dropdown-menu">
+            <li><a href="/faq">FAQ</a></li>
+            <li><a href="javascript:restartWelcomeTour();">Welcome tour</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+      <div class="content security-fakelogin" id="contentbar">
+                  <div class="page-header">
+            <h1>Login <small></small></h1>
+          </div>
+
+                                
+            <div class="top-cms-content">
+            <div class="cms-content"></div>      </div>
+        
+        
+<span id="alerts-container">
+    
+  
+      
+    <div id="global-alerts-container">
+     
+
+     <script type="text/javascript">
+      function removeFieldErrorsFromGlobal(context){
+        var globalErrors = $('#global-alerts-container .alert-error', context);
+        $('form .hasError [name]:visible, form .error [name]:visible', context).each(function() {
+          globalErrors.filter("[data-key='" + this.name + "']").remove()
+        });
+        globalErrors.show();
+      }
+
+                    $(function() {
+          removeFieldErrorsFromGlobal($('body'));
+        });
+      
+    </script>
+  </div>
+</span>
+        
+        
+<style type="text/css">
+  .page-header { display:none; }
+  .alert-warning { margin-top: 30px; }
+</style>
+<div class="alert alert-warning">
+  You need to <a onclick="$('[name=username]').focus();" href="javascript:void(0)">login</a> in order to proceed.<br />If you do not have username and password, you can register on-line as <a href="/wallet/registration">Virtual wallet</a> user.
+</div>
+
+          <div class="cms-content"></div>        </div>
+
+    </div>
+    <div class="push"></div>
+  </div>
+</div>
+
+<div id="footer">
+      <div class="cms-content"></div>    <div id="footer-info">
+    <div class="social-links pull-right">
+      <a target="_blank" href="http://vk.com/bspb" class="icon-vkontakte-letter"></a> <a target="_blank" href="http://www.facebook.com/bspb" class="icon-fb-letter"></a> <a target="_blank" href="http://twitter.com/#%21/bank_spb" class="icon-twitter"></a> <a target="_blank" href="http://www.odnoklassniki.ru/bspb" class="icon-odnoklassniki"></a> <a target="_blank" href="http://instagram.com/bank_spb" class="icon-inst"></a>
+    </div>
+
+    <div class="links pull-right">
+
+                                              
+                <div class="locales">
+          <div class="locale-selector selection-slider">
+            <a class="tab active" href="/locale/en">ENG</a>
+            <a class="tab " href="/locale/ru">RUS</a>
+            <div class="slider" style="left: 2px; width: 38px;"></div>
+          </div>
+        </div>
+            
+              <a style="padding-left: 20px" href="https://www.bspb.ru/business/distant-services/docs/rukovodstvo-polzovatelja-i2B.pdf" target="_blank">User manual</a>
+              
+      <a href="https://www.bspb.ru/" class="website">Website of Bank Saint-Petersburg</a>
+    </div>
+
+    <div class="copyright">© 1990 – 2016 Bank "Saint-Petersburg" PJSC</div>
+    <div class="license">General license for banking operations #436 from 31.12.2014 issued by Bank of Russia</div>
+
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(function () {
+    $('.datepicker-input').on('changeDate', function () {
+      $(this).removeClass('placeholder')
+    })
+  })
+</script>
+<div tabindex="-1" class="modal fade hidden" id="default-dialog"></div>
+
+
+
+</body></html>

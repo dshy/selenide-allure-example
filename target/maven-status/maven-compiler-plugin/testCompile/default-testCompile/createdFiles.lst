@@ -1,0 +1,7 @@
+pages\AbstractPage.class
+org\selenide\elements\SearchElement.class
+pages\DocumentsPage.class
+smoketests\SearchTest.class
+org\selenide\elements\AbstractElement.class
+pages\MainPage.class
+pages\JournalPage.class

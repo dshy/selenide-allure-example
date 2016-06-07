@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" class="demo "><head>
+  <meta charset="utf-8" />
+  <title>Login -  Bank Saint-Petersburg</title>
+  <meta content="BSPB internet-bank for private customers" name="description" />
+  <meta content="banking,online banking,finance services,cards,accounts,statement" name="keywords" />
+  <meta content="11126-BSPB_STABLE" name="build" />
+  <meta content="fa842ae" name="revision" />
+  
+  <link href="/public/images/favicon.png" type="image/png" rel="shortcut icon" />  <meta content="telephone=no" name="format-detection" />
+
+      <link media="screen" href="/public/stylesheets/lib.less.css?fa842ae" type="text/css" rel="stylesheet" />  <link media="screen" href="/public/stylesheets/main.less.css?fa842ae" type="text/css" rel="stylesheet" />  <link charset="utf-8" media="print" href="/public/stylesheets/print.css" type="text/css" rel="stylesheet" />
+  
+  
+  <script async="" src="https://www.google-analytics.com/analytics.js"></script><script src="/public/javascripts/base.js?fa842ae"></script>  <!--[if lte IE 8]>
+    <script type="text/javascript" language="javascript"  src="/public/javascripts/excanvas.min.js"></script>
+    <script type="text/javascript" language="javascript"  src="/public/javascripts/html5-shiv.min.js"></script>
+    <script type="text/javascript" language="javascript"  src="/public/javascripts/es5-shim.min.js"></script>
+  <![endif]-->
+  <!--[if lte IE 9]>
+    <script type="text/javascript" language="javascript"  src="/public/javascripts/jquery.placeholder.min.js"></script>
+    <script>
+      $(function(){
+        $('body').addClass('lteIe9');
+      });
+    </script>
+  <![endif]-->
+
+        <script src="/public/javascripts/session.js?ccd5b1f90ea6fb764f5e88a546daa12fc9d83b72" type="text/javascript"></script>
+  
+  </head>
+
+<body class="logged-out demo">
+
+
+<script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-31858768-3', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+
+
+
+<div id="outer-wrapper">
+  <div id="inner-wrapper">
+
+    <div id="header">
+      <div class="content clearfix">
+        <a href="/" id="logo">
+  <img alt="Bank Saint-Petersburg" src="/public/images/logo-bspb.png" />
+</a>
+<div class="environment print-hidden">
+        Internet-bank
+  </div>
+                <div class="locales">
+          <div class="locale-selector selection-slider">
+            <a class="tab active" href="/locale/en">ENG</a>
+            <a class="tab " href="/locale/ru">RUS</a>
+            <div class="slider" style="left: 2px; width: 38px;"></div>
+          </div>
+        </div>
+                                  <script type="text/javascript">
+  function resetPasswordInfo() {
+    showAjaxDialog('/application/resetpasswordinfo');
+  }
+
+  function toggleAuthType(type) {
+    $('.auth-type i').hide();
+    $('#' + type.toLowerCase() + '-auth-type i').show();
+    $('input[name=authType]').val(type);
+    var dropDownToggle = $('#login-form .dropdown-toggle');
+    $.each(dropDownToggle[0].className.split(/\s+/), function() {
+      var className = this.toString();
+      if (className.indexOf('auth-') == 0) {
+        dropDownToggle.removeClass(className);
+      }
+    });
+    dropDownToggle.addClass('auth-' + type.toLowerCase());
+    dropDownToggle.attr('title', $('#' + type.toLowerCase() + '-auth-type').text());
+            if ($.browser &amp;&amp; $.browser.msie) enablePlaceholder($('input[name=password]'));
+  }
+
+  $(function() {
+    setTimeout(function() {$('#login-username-hint').popover('show');}, 10000);
+    toggleAuthType($('input[name=authType]').val());
+          $('#login-form').submit(function(e) {
+        var form = $("#login-form");
+        $.post(form.attr('action'), form.serialize(), function(data) {
+          $('#login-container').replaceWith(data);
+        });
+        e.preventDefault();
+      });
+      });
+</script>
+
+
+<div class="clearfix" id="login-container">
+  <form class="form-inline page-header hidden" id="login-form" method="post" action="/login">
+    <input type="hidden" value="ccd5b1f90ea6fb764f5e88a546daa12fc9d83b72" name="securityToken" />
+    <input type="hidden" value="SMS" name="authType" />
+
+    <div id="user-name-input">
+              <script type="application/javascript">
+          function prefillDemoCorporate() {
+            if ('#corporate' == window.location.hash) {
+              $("#login-container input[name='username']").val('multicustomer');
+              $("#login-container input[name='password']").val('secret');
+            }
+          }
+          $(function() {
+            prefillDemoCorporate();
+            $(window).on("hashchange", prefillDemoCorporate);
+          });
+        </script>
+            <input type="text" value="demo" autofocus="" autocomplete="off" placeholder="Username" tabindex="1" name="username" class="input-small" />
+      <i data-content="" data-placement="top" class="help-icon icon-question-sign" id="login-username-hint" data-original-title="" title=""></i>
+      <br /><a href="/wallet/registration" class="login-form-link" id="new-user-link">New? Sign-up!</a>
+    </div>
+    <div>
+      <input type="password" value="demo" autocomplete="off" placeholder="Password" tabindex="2" name="password" class="input-small" />
+      <br /><a href="javascript:resetPasswordInfo()" class="login-form-link" id="reset-password-link">Forgot password?</a>
+    </div>
+
+    <div style="white-space: nowrap;" class="login-button-home">
+                  <span class="btn-group">
+        <button class="btn btn-primary" tabindex="3" id="login-button">Login</button>
+        <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle auth-sms" title="
+                  SMS 
+                ">
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+                        <li>
+                <a class="auth-type" id="sms-auth-type" href="javascript:toggleAuthType('SMS');">
+                  SMS 
+                </a>
+              </li>
+                        <li>
+                <a class="auth-type" id="totp-auth-type" href="javascript:toggleAuthType('TOTP');">
+                  Google Authenticator 
+                </a>
+              </li>
+                        <li>
+                <a class="auth-type" id="cap-auth-type" href="javascript:toggleAuthType('CAP');">
+                  CAP reader 
+                </a>
+              </li>
+                  </ul>
+      </span>
+    </div>
+
+    
+  </form>
+
+  
+    <div id="global-alerts-container">
+     
+
+     <script type="text/javascript">
+      function removeFieldErrorsFromGlobal(context){
+        var globalErrors = $('#global-alerts-container .alert-error', context);
+        $('form .hasError [name]:visible, form .error [name]:visible', context).each(function() {
+          globalErrors.filter("[data-key='" + this.name + "']").remove()
+        });
+        globalErrors.show();
+      }
+
+                    $(function() {
+          removeFieldErrorsFromGlobal($('body'));
+        });
+      
+    </script>
+  </div>
+</div>
+              </div>
+    </div>
+
+    <div class="section-security action-security-fakelogin branch-" id="body">
+      <div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      
+<ul class="navigation-menu nav">
+          <li class="section-bank " id="overview">
+                    <a href="/bank/overview" id="bank-overview">Overview</a>
+                </li>
+          <li class="section-accounts dropdown " id="accounts">
+              <a href="/accounts" class="dropdown-toggle" id="bank-accounts">Accounts</a>
+        
+<ul class="navigation-menu dropdown-menu">
+          <li class="section-bank " id="statement">
+                    <a href="/statement" id="bank-statement">Statement</a>
+                </li>
+          <li class="section-accounts " id="accountIndex">
+                    <a href="/accounts" id="accounts-index">Current accounts</a>
+                </li>
+  </ul>
+                      </li>
+          <li class="section-payments dropdown " id="payments">
+              <a href="/payments/form" class="dropdown-toggle" id="payments">Payments</a>
+        
+<ul class="navigation-menu dropdown-menu">
+          <li class="section-payments " id="payment">
+                    <a href="/payments/form" id="payments-form">Payment</a>
+                </li>
+          <li class="section-vendorpayments " id="service">
+                    <a href="/vendors" id="vendorpayments-index">Service payments</a>
+                </li>
+          <li class="section-recurrentpayments " id="recurrent">
+                    <a href="/recurrentpayments" id="recurrentpayments-index">Recurrent payments</a>
+                </li>
+          <li class="section-payments " id="paymentsHistory">
+                    <a href="/payments/history" id="payments-history">History</a>
+                </li>
+  </ul>
+                      </li>
+          <li class="section-cards " id="cards">
+                    <a href="/cards" id="cards-index">Cards</a>
+                </li>
+          <li class="section-deposits " id="deposits">
+                    <a href="/deposits" id="deposits-index">Deposits</a>
+                </li>
+          <li class="section-loans " id="loans">
+                    <a href="/loans" id="loans-index">Loans</a>
+                </li>
+          <li class="section-currency dropdown " id="currency">
+              <a href="/currency/rates" class="dropdown-toggle" id="currency">Currency</a>
+        
+<ul class="navigation-menu dropdown-menu">
+          <li class="section-currency " id="currencyRates">
+                    <a href="/currency/rates" id="currency-rates">Rates</a>
+                </li>
+          <li class="section-currency " id="currencyExchange">
+                    <a href="/currency/exchange" id="currency-exchange">Exchange</a>
+                </li>
+  </ul>
+                      </li>
+          <li class="section-insurance " id="insurance">
+                    <a href="/insurance" id="insurance-index">Insurance</a>
+                </li>
+  </ul>
+      <ul class="navigation-menu nav faq help-menu">
+        <li>
+          <a title="Frequently Asked Questions" href="/faq" id="faq-link" class="secondary-link ">?</a>
+        </li>
+      </ul>
+      <ul style="display: none;" class="navigation-menu nav faq welcome-tour-menu">
+        <li class="dropdown">
+          <a href="#" id="faq-link" data-toggle="dropdown" class="dropdown-toggle secondary-link">?</a>
+          <ul class="navigation-menu dropdown-menu">
+            <li><a href="/faq">FAQ</a></li>
+            <li><a href="javascript:restartWelcomeTour();">Welcome tour</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+      <div class="content security-fakelogin" id="contentbar">
+                  <div class="page-header">
+            <h1>Login <small></small></h1>
+          </div>
+
+                                
+            <div class="top-cms-content">
+            <div class="cms-content"></div>      </div>
+        
+        
+<span id="alerts-container">
+    
+  
+      
+</span>
+        
+        
+<style type="text/css">
+  .page-header { display:none; }
+  .alert-warning { margin-top: 30px; }
+</style>
+<div class="alert alert-warning">
+  You need to <a onclick="$('[name=username]').focus();" href="javascript:void(0)">login</a> in order to proceed.<br />If you do not have username and password, you can register on-line as <a href="/wallet/registration">Virtual wallet</a> user.
+</div>
+
+          <div class="cms-content"></div>        </div>
+
+    </div>
+    <div class="push"></div>
+  </div>
+</div>
+
+<div id="footer">
+      <div class="cms-content"></div>    <div id="footer-info">
+    <div class="social-links pull-right">
+      <a target="_blank" href="http://vk.com/bspb" class="icon-vkontakte-letter"></a> <a target="_blank" href="http://www.facebook.com/bspb" class="icon-fb-letter"></a> <a target="_blank" href="http://twitter.com/#%21/bank_spb" class="icon-twitter"></a> <a target="_blank" href="http://www.odnoklassniki.ru/bspb" class="icon-odnoklassniki"></a> <a target="_blank" href="http://instagram.com/bank_spb" class="icon-inst"></a>
+    </div>
+
+    <div class="links pull-right">
+
+                            <a class="wallet" href="/wallet">Virtual wallet</a>
+              
+      
+      <a href="https://www.bspb.ru/" class="website">Website of Bank Saint-Petersburg</a>
+    </div>
+
+    <div class="copyright">© 1990 – 2016 Bank "Saint-Petersburg" PJSC</div>
+    <div class="license">General license for banking operations #436 from 31.12.2014 issued by Bank of Russia</div>
+
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(function () {
+    $('.datepicker-input').on('changeDate', function () {
+      $(this).removeClass('placeholder')
+    })
+  })
+</script>
+<div tabindex="-1" class="modal fade hidden" id="default-dialog"></div>
+
+
+
+</body><canvas id="fxdriver-screenshot-canvas" style="display: none;" width="1920" height="979"></canvas></html>
